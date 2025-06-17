@@ -5,8 +5,8 @@ node_modules
 # se intala: npm i dotenv
 # se crea un archivo .env
 # dentro de .env:
-#   PORT: "3000"
-#   MONGODB_URL: "mongodb+srv://lafuentelhmaria:S9ucPpa7bpUE3tTt@cluster0.fhuwtg0.mongodb.net/users?retryWrites=true&w=majority&appName=Cluster0"
+#   PORT= "3000"
+#   MONGODB_URL= "mongodb+srv://lafuentelhmaria:S9ucPpa7bpUE3tTt@cluster0.fhuwtg0.mongodb.net/products?retryWrites=true&w=majority&appName=Cluster0"
 
 # apuntes mongo_url: 
 # después del nombre de usuario hay que poner la contraseña quitando los <password>

@@ -19,7 +19,19 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/api/products', productsRoutes);
 
-app.listen(port, async () => {
+
+const startServer = async () => {
+  try{
+    await mongoose.connect(port);
+    console.log('Connected to database')
+  } catch (error) {
+    console.error('Connection error')
+  }
+  app.listen(port, async () => {
+  process.env.PORT
   console.log(`Server is running on port ${port}`);
   await connectDB();
 });
+}
+
+
