@@ -15,3 +15,22 @@ export const getAllProducts = async () => {
 		throw new Error(error);
 	}
 };
+
+export const updateProduct = async (body) => {
+	console.log(body);
+	
+	try{
+		const response = await fetch(URL_BASE + URL_API, {
+			method: 'PATCH',
+			body: JSON.stringify(body),
+			headers: { 'Content-Type': 'application/json' }
+		})
+		if (response.status === 200) return
+		const data = await response.json();
+		
+		return data;
+
+	} catch (error) {
+		console.log(error);
+	}
+}

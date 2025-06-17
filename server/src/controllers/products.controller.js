@@ -13,21 +13,21 @@ productsController.getAllProducts = async (req, res) => {
 };
 
 productsController.updateProduct = async (req, res) => {
-  const { id } = req.params;
-  const { counter } = req.body;
-  //counter, la cantidad que se selecciona
+  const products = req.body;
+  console.log(products);
 
   try {
-    const selectedProduct = await ProductsModel.findById(id);
+    // const selectedProducts = await ProductsModel.findById(_id);
+    // console.log(selectedProducts);
 
-    if (!selectedProduct) {
-      return res.status(409).send({ error: 'Product not exists' });
-    }
+    // if (!selectedProducts) {
+    //   return res.status(409).send({ error: 'Product not exists' });
+    // }
 
-    await ProductsModel.updateOne({ _id: id }, { $inc: {} });
+    await ProductsModel.updateMany({ _id: products._id }, { $inc: {stock: -quantity} });
 
     const allElements = await ProductsModel.find();
-    return res.status(200).send(selectedProduct);
+    return res.status(200).send(allElements);
   } catch (error) {
     return res.status(500).send({ error: 'Error reading database' + error });
   }

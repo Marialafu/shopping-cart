@@ -12,7 +12,8 @@ const productSchema = new mongoose.Schema(
     imgTablet: String,
     imgDesktop: String,
     imgThumbnail: { type: String, required: true },
-    alt: { type: String, required: true }
+    alt: { type: String, required: true },
+    stock: Number
   },
   {
     //genera createAt y UpdateAt automático

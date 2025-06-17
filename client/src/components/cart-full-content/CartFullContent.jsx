@@ -1,3 +1,4 @@
+import { updateProduct } from '../../lib/utils/api';
 import styles from './cartFullContent.module.css';
 
 const CartFullContent = ({ cartProducts, setCartProducts }) => {
@@ -56,15 +57,17 @@ const CartFullContent = ({ cartProducts, setCartProducts }) => {
           delivery
         </span>
       </div>
-      <button className={buttonClass}>Confirm Order</button>
+      <button
+        onClick={() => reduceStock(cartProducts)}
+        className={buttonClass}
+      >
+        Confirm Order
+      </button>
     </section>
   );
 };
 
-//NO FUNCIONA
 const eliminateCartProduct = (cartProducts, setCartProducts, product) => {
-  //reiniciar el boton de add to cart
-
   const findProduct = cartProducts.find(cartProduct => {
     return product.id === cartProduct.id;
   });
@@ -91,6 +94,13 @@ const finalCartPrice = cartProducts => {
   });
 
   return finalOrderPrice;
+};
+const reduceStock = async cartProducts => {
+  try {
+    const updatedProducts = await updateProduct(cartProducts);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default CartFullContent;
