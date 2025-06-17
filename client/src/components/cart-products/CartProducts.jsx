@@ -1,6 +1,7 @@
 import CardButton from '../card-button/CardButton';
 import CardImg from '../card-img/CardImg';
-import styles from './cartProducts.module.css'
+import CardStock from '../card-stock/CardStock';
+import styles from './cartProducts.module.css';
 
 const CartProducts = ({ product, cartProducts, setCartProducts }) => {
   const productAdded = findProductInCart(cartProducts, product);
@@ -8,6 +9,8 @@ const CartProducts = ({ product, cartProducts, setCartProducts }) => {
   return (
     <article className={styles.dessertCard}>
       <div className={styles.topCard}>
+        {/* por qué si expando product me da el objeto entero */}
+        <CardStock {...product} />
         <CardImg {...product} />
         <CardButton
           productAdded={productAdded}
@@ -18,7 +21,6 @@ const CartProducts = ({ product, cartProducts, setCartProducts }) => {
           decrementQuantity={() =>
             decrementQuantity(productAdded, cartProducts, setCartProducts)
           }
-
           // pasar cantidad de producto suma y resta
         />
       </div>
@@ -34,7 +36,7 @@ const CartProducts = ({ product, cartProducts, setCartProducts }) => {
 
 const findProductInCart = (cartProducts, product) => {
   const result = cartProducts.find(
-    cartProduct => cartProduct.id === product.id
+    cartProduct => cartProduct._id === product._id
   );
 
   return result;

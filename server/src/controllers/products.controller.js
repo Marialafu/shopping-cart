@@ -1,7 +1,16 @@
 const { v4 } = require('uuid');
-const ProductsModel = require('../models/element.model');
+const ProductsModel = require('../models/products.model');
 
 const productsController = {};
+
+productsController.getAllProducts = async (req, res) => {
+  try {
+    const allProducts = await ProductsModel.find();
+    return res.status(200).send(allProducts);
+  } catch (error) {
+    return res.status(500).send({ error: 'Error reading database' + error });
+  }
+};
 
 productsController.updateProduct = async (req, res) => {
   const { id } = req.params;
@@ -15,23 +24,14 @@ productsController.updateProduct = async (req, res) => {
       return res.status(409).send({ error: 'Product not exists' });
     }
 
-    await ProductsModel.updateOne({ _id: id }, { $set: { stock: -counter } });
+    await ProductsModel.updateOne({ _id: id }, { $inc: {} });
 
-    const allElements = await ElementModel.find();
-    return res.status(200).send(allElements);
+    const allElements = await ProductsModel.find();
+    return res.status(200).send(selectedProduct);
   } catch (error) {
     return res.status(500).send({ error: 'Error reading database' + error });
   }
 };
-
-// elementController.getAllElements = async (req, res) => {
-//   try {
-//     const allElements = await ElementModel.find();
-//     return res.status(200).send(allElements);
-//   } catch (error) {
-//     return res.status(500).send({ error: 'Error reading database' + error });
-//   }
-// };
 
 // elementController.createElement = async (req, res) => {
 //   const { info } = req.body;

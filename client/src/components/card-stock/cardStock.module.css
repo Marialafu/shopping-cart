@@ -1,0 +1,15 @@
+.stockContainer{
+    width: 3.125rem;
+    height: 3.125rem;
+    background-color: var(--terciary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.625rem;
+    color: var(--background-color);
+    border-radius: 50%;
+    position: relative;
+    top: 1.25rem;
+    left: 20.3125rem;
+    z-index: 2;
+}

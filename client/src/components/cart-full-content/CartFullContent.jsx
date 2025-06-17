@@ -12,7 +12,7 @@ const CartFullContent = ({ cartProducts, setCartProducts }) => {
         return (
           <div
             className={styles.cartProductContainer}
-            key={product.id}
+            key={product._id}
           >
             <div className={styles.textFullCartContainer}>
               <div className='titleS'>{product.title}</div>

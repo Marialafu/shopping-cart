@@ -1,12 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CartContent from './components/cart-content/CartContent';
 import CartProducts from './components/cart-products/CartProducts';
 import Filters from './components/filters/Filters';
 import { PRODUCTS } from './constants/products';
+import { getAllProducts } from './lib/utils/api';
 
 const App = () => {
   const [definedFilter, setDefinedFilter] = useState(0);
-  const orderedListByFilter = sortListByFilter(definedFilter);
+  const [orderedListByFilter, setOrderedListByFilter] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const orderedListByFilter = await sortListByFilter(definedFilter);
+      setOrderedListByFilter(orderedListByFilter);
+    };
+
+    fetchProducts();
+  }, [definedFilter]);
 
   const [cartProducts, setCartProducts] = useState([]);
 
@@ -26,7 +36,7 @@ const App = () => {
           <section className='dessertsGrid'>
             {orderedListByFilter.map(product => (
               <CartProducts
-                key={product.id}
+                key={product._id}
                 product={product}
                 cartProducts={cartProducts}
                 setCartProducts={setCartProducts}
@@ -46,21 +56,28 @@ const App = () => {
   );
 };
 
-const sortListByFilter = definedFilter => {
-  const list = [...PRODUCTS];
+const sortListByFilter = async definedFilter => {
+  try {
+    const products = await getAllProducts();
+    const list = [...products];
+    console.log(list);
 
-  if (definedFilter === 1) {
-    const orderedList = list.sort((a, b) => a.title.localeCompare(b.title));
-    return orderedList;
-  }
-  if (definedFilter === 2) {
-    const orderedList = list.sort((a, b) => {
-      return a.price - b.price;
-    });
-    return orderedList;
-  }
+    if (definedFilter === 1) {
+      const orderedList = list.sort((a, b) => a.title.localeCompare(b.title));
+      return orderedList;
+    }
+    if (definedFilter === 2) {
+      const orderedList = list.sort((a, b) => {
+        return a.price - b.price;
+      });
+      return orderedList;
+    }
 
-  return list;
+    return list;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
 };
 
 export default App;
