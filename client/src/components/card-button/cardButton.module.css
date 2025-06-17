@@ -1,0 +1,53 @@
+.button{
+font-family: inherit;
+  font-weight: var(--semibold);
+  font-size: var(--text-s);
+  border-radius: var(--border-radius-l);
+  border: 0.0625rem solid var(--terciary-color);
+  background-color: var(--secondary-color);
+}
+.cardButton{
+    position: relative;
+  top: -25px;
+  display: flex;
+  align-items: center;
+  width: 10rem;
+  height: 2.75rem;
+  padding: 0.75rem;
+
+}
+.buttonSelected{
+background-color: var(--featured-items);
+  color: var(--background-color);
+
+}
+.addEliminateToCartButton{
+    justify-content: space-between;
+}
+.addToCartButton{
+    justify-content: center;
+  gap: 0.5rem;
+}
+.addToCartButton:hover{
+    color: var(--featured-items);
+  border: 0.0625rem solid var(--featured-items);
+}
+
+.circle{
+    width: 1.25rem;
+  height: 1.25rem;
+  border: 0.0625rem solid var(--secondary-color);
+  padding: 0.1875rem;
+  border-radius: var(--border-radius-l);
+  cursor: pointer;
+}
+.circle:hover{
+    background-color: var(--terciary-color);
+}
+.brownCircle{
+  border: 0.0625rem solid var(--terciary-color);
+}
+
+.pointerEvents{
+    pointer-events: none;
+}

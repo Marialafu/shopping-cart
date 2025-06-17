@@ -1,21 +1,27 @@
 const mongoose = require('mongoose');
 
 //esquema por cada colección de MongoDB
-const userSchema = new mongoose.Schema(
+const productSchema = new mongoose.Schema(
   {
     //required: para valores obligatorios
     //type: String, Number, Boolean, Arrays...
-    firstValue: { type: String, required: true },
-    secondValue: String
+    name: { type: String, required: true },
+    title: { type: String, required: true },
+    price: { type: Number, required: true },
+    imgMobile: { type: String, required: true },
+    imgTablet: String,
+    imgDesktop: String,
+    imgThumbnail: { type: String, required: true },
+    alt: { type: String, required: true }
   },
   {
     //genera createAt y UpdateAt automático
     timestamps: true,
-    collection: 'mongodbCollectionName'
+    collection: 'productsCollection'
   }
 );
 
 //js no sabe leer el esquema, el modelo compila el esquema
-const UserModel = mongoose.model('User', userSchema);
+const ProductsModel = mongoose.model('User', productSchema);
 
-module.exports = UserModel;
+module.exports = ProductsModel;

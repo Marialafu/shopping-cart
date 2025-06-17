@@ -1,0 +1,9 @@
+.dessertPicture{
+  position: relative;
+  border-radius: var(--border-radius-s);
+}
+@media screen and (min-width: 1200px) {
+  .dessert-picture{
+    border-radius: var(--border-radius-m);
+  }
+}

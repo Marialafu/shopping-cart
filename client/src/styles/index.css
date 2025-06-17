@@ -1,0 +1,138 @@
+:root{
+  --font-family: "Red Hat Text", sans-serif;
+  --title-m: 2.5rem;
+  --title-s: 1.5rem;
+  --text-m: 1rem;
+  --text-s: 0.875rem;
+
+  --bold: 700;
+  --semibold: 600;
+  --regular: 400;
+
+  --background-color: #FCF8F6;
+  --primary-color: #260F08;
+  --secondary-color: white;
+  --terciary-color: #87635A;
+  --featured-items: #C73B0F;
+
+  --border-radius-l: 6.25rem;
+  --border-radius-m: 0.75rem;
+  --border-radius-s: 0.5rem;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+}
+
+/* TEXTOS */
+h1{
+  font-size: var(--title-m);
+  font-weight: var(--bold);
+  color: var(--primary-color);
+  margin: 0;
+  margin-bottom: 1.25rem;
+}
+
+.titleL{
+  font-size: var(--title-s);
+  font-weight: var(--bold);
+  color: var(--featured-items);
+  margin: 0;
+  padding-bottom: 1.5rem;
+}
+.titleM{
+  font-size: var(--title-s);
+  font-weight: var(--bold);
+  color: var(--primary-color);
+}
+.titleS{
+  font-size: var(--text-s);
+  font-weight: var(--semibold);
+  color: var(--primary-color);
+  margin: 0;
+}
+.subtitle{
+  font-size: var(--text-s);
+  font-weight: var(--semibold);
+  color: var(--terciary-color);
+  margin: 0;
+}
+.text{
+  font-size: var(--text-m);
+  font-weight: var(--semibold);
+  color: var(--primary-color);
+  margin: 0;
+}
+.featuredText{
+  color: var(--featured-items);
+}
+.categoryText{
+  font-size: var(--text-s);
+  font-weight: var(--regular);
+  color: var(--terciary-color);
+  margin: 0;
+}
+.darkText{
+  color: var(--primary-color);
+}
+
+.cardsCartContainer{
+   display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2rem;
+  padding: 0 1rem;
+  margin-inline: auto;
+}
+.dessertsGrid{
+  grid-template-columns: repeat(3, 13.3331rem);
+    gap:2rem 1.5rem;
+}
+@media screen and (min-width: 768px) {
+
+  .cardsCartContainer{
+    gap: 4.9375rem;
+    padding: 0 2.5rem;
+  }
+
+}
+@media screen and (min-width: 1200px) {
+
+  .cardsCartContainer{
+    flex-direction: row;
+    gap: 2rem;
+    padding: 0 7rem;
+  }
+  .desserts-grid{
+    grid-template-columns: repeat(3, 15.6669rem);
+  }
+
+}

@@ -1,0 +1,17 @@
+.emptyCartContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: var(--secondary-color);
+  border-radius: 0.75rem;
+  margin-bottom: 1.75rem;
+  width: 90vw;
+}
+.subtitle{
+    size: var(--text-s);
+  font-weight: var(--semibold);
+  color: var(--terciary-color);
+  margin: 0;
+}

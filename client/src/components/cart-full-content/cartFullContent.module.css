@@ -1,0 +1,117 @@
+.fullCartContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: var(--secondary-color);
+  border-radius: 0.75rem;
+  margin-bottom: 1.75rem;
+  width: 90vw;
+}
+.cartProductContainer{
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 1.875rem;
+
+}
+.textFullCartContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.subtitleFullCartContainer{
+    display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+
+}
+.subtitleInfoFullCartContainer{
+  display: flex;
+  gap: 0.5rem;
+}
+.subtitle{
+    font-size: var(--text-s);
+  font-weight: var(--semibold);
+  color: var(--terciary-color);
+  margin: 0;
+
+}
+.featuredText{
+    color: var(--featured-items);
+
+}
+.categoryText{
+    font-size: var(--text-s);
+  font-weight: var(--regular);
+  color: var(--terciary-color);
+  margin: 0;
+
+}
+.darkText{
+     color: var(--primary-color);
+}
+
+
+.circle{
+    width: 1.25rem;
+  height: 1.25rem;
+  border: 0.0625rem solid var(--secondary-color);
+  padding: 0.1875rem;
+  border-radius: var(--border-radius-l);
+  cursor: pointer;
+}
+.circle:hover{
+    background-color: var(--terciary-color);
+}
+
+.brownCircle{
+    border: 0.0625rem solid var(--terciary-color);
+
+}
+.eliminateButtonFullCartContainer{
+    background-image: url(../../../public/assets/images/icon-remove-item.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.totalOrderContainer{
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+}
+
+
+.carbonLabelContainer{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--background-color);
+  border: var(--border-radius-m);
+  padding: 1rem 1.4375rem;
+  margin-bottom: 1.5rem;
+}
+.confirmOrderButtonContainer{
+padding: 1rem 0;
+  cursor: pointer;
+  border: none;
+}
+
+.button{
+    font-family: inherit;
+  font-weight: var(--semibold);
+  font-size: var(--text-s);
+  border-radius: var(--border-radius-l);
+  border: 0.0625rem solid var(--terciary-color);
+  background-color: var(--secondary-color);
+
+}
+.buttonSelected{
+    background-color: var(--featured-items);
+  color: var(--background-color);
+
+}

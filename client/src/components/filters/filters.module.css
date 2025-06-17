@@ -1,0 +1,42 @@
+.filterButtonsContainer{
+    display: flex;
+  gap: 1.1531rem;
+  padding: 0 1rem 1.625rem 1rem;
+
+}
+.filterButton{
+    width: 4.8044rem;
+  height: 2.125rem;
+  cursor: pointer;
+
+}
+.button{
+    font-family: inherit;
+  font-weight: var(--semibold);
+  font-size: var(--text-s);
+  border-radius: var(--border-radius-l);
+  border: 0.0625rem solid var(--terciary-color);
+  background-color: var(--secondary-color);
+}
+.buttonSelected{
+    background-color: var(--featured-items);
+  color: var(--background-color);
+}
+
+@media screen and (min-width: 768px) {
+  .filterButtonsContainer{
+    gap: 1.2063rem;
+    padding: 0 2.5rem 2rem 2.5rem;
+  }
+
+}
+
+@media screen and (min-width: 1200px) {
+  .filterButtonsContainer{
+    gap: 1.5rem;
+    padding: 0 7rem 2.625rem 7rem;
+  }
+  .filterButton{
+    width: 6.25rem;
+  }
+}
