@@ -4,8 +4,7 @@ import styles from './cartFullContent.module.css';
 const CartFullContent = ({
   cartProducts,
   setCartProducts,
-  setOrderedListByFilter,
-  orderedListByFilter
+  setOrderedListByFilter
 }) => {
   const productQuantityClass = `${styles.subtitle} ${styles.featuredText}`;
   const xButtonClass = `${styles.circle} ${styles.brownCircle} ${styles.eliminateButtonFullCartContainer}`;
@@ -58,7 +57,7 @@ const CartFullContent = ({
       </div>
       <button
         onClick={() =>
-          reduceStock(cartProducts, setOrderedListByFilter, orderedListByFilter)
+          reduceStock(cartProducts, setOrderedListByFilter, setCartProducts)
         }
         className={buttonClass}
       >
@@ -99,12 +98,14 @@ const finalCartPrice = cartProducts => {
 const reduceStock = async (
   cartProducts,
   setOrderedListByFilter,
-  orderedListByFilter
+  setCartProducts
 ) => {
   try {
     const updatedProducts = await updateProduct(cartProducts);
     //seteamos los productos que se muestran, no los del carrito.
-    setOrderedListByFilter(orderedListByFilter);
+    setOrderedListByFilter(updatedProducts);
+    //seteamos la lista de pedidos para reiniciarlo.
+    setCartProducts([]);
   } catch (error) {
     console.log(error);
   }

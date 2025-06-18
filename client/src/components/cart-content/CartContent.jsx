@@ -19,8 +19,8 @@ const CartContent = ({
         <CartFullContent
           cartProducts={cartProducts}
           setCartProducts={setCartProducts}
-          setOrderedListByFilter={setOrderedListByFilter}
           orderedListByFilter={orderedListByFilter}
+          setOrderedListByFilter={setOrderedListByFilter}
         />
       )}
     </>

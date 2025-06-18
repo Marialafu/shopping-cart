@@ -47,8 +47,8 @@ const App = () => {
             <CartContent
               cartProducts={cartProducts}
               setCartProducts={setCartProducts}
-              setOrderedListByFilter={setOrderedListByFilter}
               orderedListByFilter={orderedListByFilter}
+              setOrderedListByFilter={setOrderedListByFilter}
             />
           </section>
         </section>
@@ -61,7 +61,6 @@ const sortListByFilter = async definedFilter => {
   try {
     const products = await getAllProducts();
     const list = [...products];
-    console.log(list);
 
     if (definedFilter === 1) {
       const orderedList = list.sort((a, b) => a.title.localeCompare(b.title));
