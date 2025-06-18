@@ -1,7 +1,12 @@
 import { updateProduct } from '../../lib/utils/api';
 import styles from './cartFullContent.module.css';
 
-const CartFullContent = ({ cartProducts, setCartProducts }) => {
+const CartFullContent = ({
+  cartProducts,
+  setCartProducts,
+  setOrderedListByFilter,
+  orderedListByFilter
+}) => {
   const productQuantityClass = `${styles.subtitle} ${styles.featuredText}`;
   const xButtonClass = `${styles.circle} ${styles.brownCircle} ${styles.eliminateButtonFullCartContainer}`;
   const orderTotalClass = `${styles.categoryText} ${styles.darkText}`;
@@ -11,10 +16,7 @@ const CartFullContent = ({ cartProducts, setCartProducts }) => {
     <section className={styles.fullCartContainer}>
       {cartProducts.map(product => {
         return (
-          <div
-            className={styles.cartProductContainer}
-            key={product._id}
-          >
+          <div className={styles.cartProductContainer} key={product._id}>
             <div className={styles.textFullCartContainer}>
               <div className='titleS'>{product.title}</div>
 
@@ -48,17 +50,16 @@ const CartFullContent = ({ cartProducts, setCartProducts }) => {
         <span className='titleM'>{finalCartPrice(cartProducts)}$</span>
       </div>
       <div className={styles.carbonLabelContainer}>
-        <img
-          src='/assets/images/icon-carbon-neutral.svg'
-          alt=''
-        />
+        <img src='/assets/images/icon-carbon-neutral.svg' alt='' />
         <span className={orderTotalClass}>
           This is a <span className={styles.subtitle}>carbon-neutral</span>{' '}
           delivery
         </span>
       </div>
       <button
-        onClick={() => reduceStock(cartProducts)}
+        onClick={() =>
+          reduceStock(cartProducts, setOrderedListByFilter, orderedListByFilter)
+        }
         className={buttonClass}
       >
         Confirm Order
@@ -95,9 +96,15 @@ const finalCartPrice = cartProducts => {
 
   return finalOrderPrice;
 };
-const reduceStock = async cartProducts => {
+const reduceStock = async (
+  cartProducts,
+  setOrderedListByFilter,
+  orderedListByFilter
+) => {
   try {
     const updatedProducts = await updateProduct(cartProducts);
+    //seteamos los productos que se muestran, no los del carrito.
+    setOrderedListByFilter(orderedListByFilter);
   } catch (error) {
     console.log(error);
   }

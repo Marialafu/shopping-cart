@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import CartContent from './components/cart-content/CartContent';
 import CartProducts from './components/cart-products/CartProducts';
 import Filters from './components/filters/Filters';
-import { PRODUCTS } from './constants/products';
 import { getAllProducts } from './lib/utils/api';
 
 const App = () => {
@@ -48,6 +47,8 @@ const App = () => {
             <CartContent
               cartProducts={cartProducts}
               setCartProducts={setCartProducts}
+              setOrderedListByFilter={setOrderedListByFilter}
+              orderedListByFilter={orderedListByFilter}
             />
           </section>
         </section>

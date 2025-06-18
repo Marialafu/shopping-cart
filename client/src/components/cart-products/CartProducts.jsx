@@ -9,7 +9,6 @@ const CartProducts = ({ product, cartProducts, setCartProducts }) => {
   return (
     <article className={styles.dessertCard}>
       <div className={styles.topCard}>
-        {/* por qué si expando product me da el objeto entero */}
         <CardStock {...product} />
         <CardImg {...product} />
         <CardButton

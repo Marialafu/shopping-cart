@@ -1,7 +1,12 @@
 import CartEmptyContent from '../cart-empty-content/CartEmptyContent';
 import CartFullContent from '../cart-full-content/CartFullContent';
 
-const CartContent = ({ cartProducts, setCartProducts }) => {
+const CartContent = ({
+  cartProducts,
+  setCartProducts,
+  setOrderedListByFilter,
+  orderedListByFilter
+}) => {
   return (
     <>
       <h2 className='titleL'>
@@ -14,6 +19,8 @@ const CartContent = ({ cartProducts, setCartProducts }) => {
         <CartFullContent
           cartProducts={cartProducts}
           setCartProducts={setCartProducts}
+          setOrderedListByFilter={setOrderedListByFilter}
+          orderedListByFilter={orderedListByFilter}
         />
       )}
     </>
